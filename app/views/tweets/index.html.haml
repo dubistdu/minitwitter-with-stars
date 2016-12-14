@@ -13,19 +13,19 @@
     %tbody
       - @tweets.each do |tweet|
         %tr
-          %td= tweet.text
-          %td= tweet.user_name
+
           %td
             %p
               = tweet.upvote_count
-              = story.downvote_count
+              = tweet.downvote_count
               = link_to upvote_tweet_path(tweet) do
                 -# link_to "<i class='fa fa-chevron-up' aria-hidden='true'>", upvote_tweet_path(tweet)
                 %i.fa.fa-star{"aria-hidden" => "true"}
               = link_to downvote_tweet_path(tweet) do
                 -# link_to "<i class='fa fa-chevron-up' aria-hidden='true'>", upvote_tweet_path(tweet)
                 %i.fa.fa-star-o{"aria-hidden" => "true"}
-              = link_to tweet.text, tweet.link
+              = link_to tweet.text
               %em
                 Net Value:
                 = tweet.net
+          %td= tweet.user_name
